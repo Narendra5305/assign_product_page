@@ -22,6 +22,9 @@
     <br>
     <button id="incBtn">Price High To Low</button>
     <button id="decBtn">Price Low To High</button>
+    <button id="PincBtn">sort by popularity(rating: Low to High)</button>
+    <button id="PdecBtn">sort by popularity(rating: High To Low)</button>
+
     <select id="filterByCategory">
         <option value="">-</option>
         <option value="men's clothing">men's clothing</option>
@@ -346,5 +349,25 @@
         displayProducts(filterArr)
 
     });
+
+    const PincBtn = document.getElementById("PincBtn")
+    
+    PincBtn.addEventListener("click" , ()=>{
+        container.innerHTML = null ;
+        products.sort((a,b) => a.rating.rate - b.rating.rate  )
+        displayProducts(products)
+
+    });
+
+    
+    const PdecBtn = document.getElementById("PdecBtn");
+
+    PdecBtn.addEventListener("click" , ()=>{
+        container.innerHTML = null ;
+        products.sort((a,b) => b.rating.rate - a.rating.rate )
+        displayProducts(products)
+
+    });
+
 
 </script>
